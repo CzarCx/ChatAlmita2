@@ -1,20 +1,12 @@
-///web
-
-//const express = require('express');
-//const bodyParser = require('body-parser');
-//const fs = require('fs');
-//const https = require('https');
-//const app = express();
-//var server = https.createServer(app);
-//const io = require('socket.io')(server);'
-
-
-// Configuración para localhost (en este caso, utilizando HTTP)
 const express = require('express');
 const bodyParser = require('body-parser');
-var app = require('express')();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+const app = express();
+const server = require('http').Server(app);
+var io = require('socket.io')(server, {
+    cors: {
+      origin: '*',
+    }
+});
 
 var clientes = []; // Lista de clientes conectados
 
