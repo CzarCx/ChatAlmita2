@@ -1,5 +1,5 @@
 // Establecer la conexión del socket con el servidor
-var socket = io.connect('http://192.168.100.16:8080'); // IP DEL DISPOSITIVO PARA DEPLOYAR EN LOCAL
+var socket = io.connect('https://chat-oli.onrender.com'); // IP DEL DISPOSITIVO PARA DEPLOYAR EN LOCAL
 
 //const socket = io("ws://urlserverhost.com:3000", { //cambiar url host
 //  transports: ["websocket"]   //WEB
