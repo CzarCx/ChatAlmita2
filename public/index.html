@@ -94,7 +94,7 @@ a{
     <div class="inicio-sesion">
 
 
-    <div class="ing-correo"><input type="text" placeholder="Nombre de usuario" autofocus class="ingreso-form" id="username"/></div>
+    <div class="ing-correo"><input type="text" placeholder="Nombre de usuario" autofocus class="ingreso-form" id="username" onclick="validateUsername()"/></div>
 
       
     <div class="bot-in">
@@ -108,6 +108,7 @@ a{
   </body>
 </html>
 <script>
+
   function joinChat() {
     var username = document.querySelector('#username').value;
     if (username.length <= 0) {
@@ -116,4 +117,20 @@ a{
       window.location = '/chat/' + username;
     }
   }
+  function validateUsername() {
+        var usernameInput = document.querySelector('#username');
+        var usernameValue = usernameInput.value.trim();
+        var validCharactersRegex = /^[a-zA-Z0-9_-]+$/;
+    
+        if (!usernameValue) {
+          showCustomModal('El nombre de usuario es requerido.');
+          return false;
+        }
+    
+        if (!validCharactersRegex.test(usernameValue)) { 
+          showCustomModal('El nombre de usuario contiene caracteres no permitidos.');
+          return false;
+        }
+        return true;
+      }
   </script>
