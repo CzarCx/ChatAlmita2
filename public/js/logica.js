@@ -63,7 +63,7 @@ function enviarMensaje(e) {
 socket.on('mensaje', function (data) {
   // Procesar el mensaje recibido y mostrarlo en la interfaz de usuario
   data.username = data.username.replace('</', '');
-  var sanitized = data.msg.replace('</', '');
+  var sanitized = data.msg.replace(/<\/?[^>]+(>|$)/g, '').trim(); 
   sanitized = sanitized.replace('>', '');
   sanitized = sanitized.replace('<', '');
   if (data.id == socket.id) {
